@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@wppconnect/wa-js": "^4.6.1",
+    "xlsx": "^0.18.5"
+  }
+}
