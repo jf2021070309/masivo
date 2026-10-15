@@ -26,8 +26,8 @@
     {
       "matches": ["https://web.whatsapp.com/*"],
       "js": [
-        "lib/xlsx.full.min.js",
         "lib/wppconnect-wa.js",
+        "lib/xlsx.full.min.js",
         "default_numbers.js",
         "app_injector.js"
       ],

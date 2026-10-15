@@ -3,40 +3,9 @@
    Diseño exacto en modo oscuro con toggles, tarjetas y controles nativos.
    ========================================================================== */
 
-/* Botón flotante lanzador */
-#surgas-launcher-btn {
-  position: fixed;
-  bottom: 24px;
-  right: 28px;
-  z-index: 99999;
-  background: #00a884;
-  color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 4px 18px rgba(0, 168, 132, 0.4), 0 2px 4px rgba(0, 0, 0, 0.3);
-  padding: 9px 16px;
-  border-radius: 999px;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  font-size: 13px;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  cursor: pointer;
-  transition: transform 0.15s ease, background 0.15s;
-  user-select: none;
-}
-
-#surgas-launcher-btn:hover {
-  background: #02906f;
-  transform: scale(1.02);
-}
-
-.surgas-pulse-dot {
-  width: 8px;
-  height: 8px;
-  background-color: #25d366;
-  border-radius: 50%;
-  box-shadow: 0 0 6px #25d366;
+/* Botones redundantes desactivados */
+#surgas-launcher-btn, .surgas-header-btn {
+  display: none !important;
 }
 
 /* Modal Overlay */
@@ -62,9 +31,9 @@
 
 /* Modal Container */
 #surgas-modal-container, #surgas-qr-container {
-  width: 860px;
-  max-width: 95vw;
-  max-height: 92vh;
+  width: 920px;
+  max-width: 96vw;
+  max-height: 94vh;
   background: #202c33;
   border: 1px solid #313d45;
   border-radius: 12px;
@@ -240,6 +209,47 @@ input[type="checkbox"]:checked + .surgas-toggle-switch::after {
 .surgas-excel-desc {
   font-size: 11px;
   color: #8696a0;
+}
+
+.surgas-btn-load-main {
+  width: 100%;
+  background: #00a884;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.15s ease;
+  box-shadow: 0 2px 6px rgba(0, 168, 132, 0.3);
+}
+
+.surgas-btn-load-main:hover {
+  background: #02906f;
+  transform: translateY(-1px);
+}
+
+.surgas-excel-box-compact {
+  background: #111b21;
+  border: 1px dashed #374248;
+  border-radius: 6px;
+  padding: 8px 12px;
+  text-align: center;
+  cursor: pointer;
+  font-size: 11px;
+  color: #8696a0;
+  margin-top: 6px;
+  transition: border-color 0.15s;
+}
+
+.surgas-excel-box-compact:hover {
+  border-color: #00a884;
+  color: #e9edef;
 }
 
 /* Editor de mensaje (Screenshot 2 clone) */
@@ -465,35 +475,60 @@ input[type="checkbox"]:checked + .surgas-toggle-switch::after {
 }
 
 /* ==========================================================================
-   BARRA DE ACCESOS DIRECTOS (RESPUESTAS RÁPIDAS EN EL CHAT) - Screenshot 3
+   BARRA DE ACCESOS DIRECTOS (RESPUESTAS RÁPIDAS EN EL CHAT) - ESTILO NATIVO WHATSAPP
    ========================================================================== */
 .surgas-quick-bar {
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 6px 16px;
-  background: #111b21;
-  border-top: 1px solid #202c33;
+  gap: 6px;
+  padding: 6px 14px;
+  background: #202c33;
+  border-top: 1px solid #2a3942;
+  border-bottom: 1px solid #111b21;
   overflow-x: auto;
   user-select: none;
-  z-index: 100;
+  z-index: 99;
 }
 
 .surgas-quick-bar::-webkit-scrollbar {
-  height: 4px;
+  height: 3px;
 }
 
 .surgas-quick-bar::-webkit-scrollbar-thumb {
-  background: #2a3942;
-  border-radius: 4px;
+  background: #374248;
+  border-radius: 3px;
 }
 
-.surgas-quick-mgr-btn {
+/* Botón Campaña Masiva en la barra */
+.surgas-quick-camp-btn {
   background: #00a884;
   color: #ffffff;
   border: none;
-  border-radius: 6px;
-  padding: 5px 9px;
+  border-radius: 999px;
+  padding: 4px 12px;
+  font-size: 11.5px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all 0.15s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.surgas-quick-camp-btn:hover {
+  background: #02906f;
+  transform: translateY(-1px);
+}
+
+/* Botón gestor ☰ estilo nativo WhatsApp */
+.surgas-quick-mgr-btn {
+  background: #111b21;
+  color: #8696a0;
+  border: 1px solid #2a3942;
+  border-radius: 999px;
+  padding: 4px 10px;
   font-size: 12px;
   font-weight: 700;
   display: inline-flex;
@@ -501,39 +536,44 @@ input[type="checkbox"]:checked + .surgas-toggle-switch::after {
   justify-content: center;
   cursor: pointer;
   flex-shrink: 0;
-  transition: background 0.15s;
+  transition: all 0.15s ease;
 }
 
 .surgas-quick-mgr-btn:hover {
-  background: #02906f;
+  background: #2a3942;
+  color: #00a884;
+  border-color: #00a884;
 }
 
-/* Chips estilo Screenshot 3: [ 💬 PRECIOS ↗ ] con borde morado/verde */
+/* Chips estilo nativo WhatsApp (Píldoras oscuras idénticas a los filtros de WhatsApp) */
 .surgas-quick-chip {
-  background: rgba(147, 51, 234, 0.12);
-  border: 1px solid #a855f7;
-  color: #d8b4fe;
-  border-radius: 6px;
-  padding: 4px 10px;
-  font-size: 12px;
-  font-weight: 700;
+  background: #111b21;
+  border: 1px solid #2a3942;
+  color: #e9edef;
+  border-radius: 999px;
+  padding: 4px 12px;
+  font-size: 11.5px;
+  font-weight: 600;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 5px;
   flex-shrink: 0;
   transition: all 0.15s ease;
 }
 
 .surgas-quick-chip:hover {
-  background: rgba(147, 51, 234, 0.25);
-  color: #ffffff;
+  background: #222e35;
+  border-color: #00a884;
+  color: #25d366;
   transform: translateY(-1px);
 }
 
 .surgas-quick-chip:active {
   transform: translateY(0);
 }
+
+
 
 /* ==========================================================================
    GESTOR Y EDITOR DE RESPUESTAS RÁPIDAS - Screenshots 1 & 2
@@ -590,3 +630,318 @@ input[type="checkbox"]:checked + .surgas-toggle-switch::after {
   max-height: 280px;
   overflow-y: auto;
 }
+
+/* Adjunto multimedia en Respuestas Rápidas */
+.surgas-qr-media-box {
+  background: #111b21;
+  border: 1px dashed #2a3942;
+  border-radius: 8px;
+  padding: 10px 14px;
+  margin-top: 6px;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.surgas-qr-media-box:hover {
+  border-color: #00a884;
+}
+
+.surgas-qr-media-empty {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.surgas-btn-media-add {
+  background: #202c33;
+  border: 1px solid #374248;
+  color: #e9edef;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.15s ease;
+}
+
+.surgas-btn-media-add:hover {
+  background: #2a3942;
+  border-color: #00a884;
+  color: #25d366;
+}
+
+.surgas-media-hint {
+  font-size: 11px;
+  color: #8696a0;
+}
+
+.surgas-qr-media-selected {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.surgas-qr-media-preview-thumb {
+  width: 44px;
+  height: 44px;
+  border-radius: 6px;
+  background: #1f2c34;
+  border: 1px solid #2a3942;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.surgas-qr-media-preview-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.surgas-qr-media-meta {
+  flex: 1;
+  min-width: 0;
+}
+
+.surgas-qr-media-filename {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #e9edef;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.surgas-qr-media-filesize {
+  font-size: 11px;
+  color: #8696a0;
+  margin-top: 2px;
+}
+
+.surgas-qr-btn-remove-media {
+  background: rgba(248, 113, 113, 0.15);
+  border: 1px solid rgba(248, 113, 113, 0.3);
+  color: #f87171;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: bold;
+  transition: all 0.15s ease;
+  flex-shrink: 0;
+}
+
+.surgas-qr-btn-remove-media:hover {
+  background: rgba(248, 113, 113, 0.3);
+  color: #ffffff;
+}
+
+
+/* ==========================================================================
+   BADGES DE ESTADO Y FILTROS EN TABLA DE CONTACTOS
+   ========================================================================== */
+.surgas-badge-status {
+  display: inline-block;
+  padding: 2px 7px;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.surgas-badge-status.status-pending {
+  background: rgba(251, 191, 36, 0.15);
+  color: #fbbf24;
+  border: 1px solid rgba(251, 191, 36, 0.3);
+}
+
+.surgas-badge-status.status-sent {
+  background: rgba(0, 168, 132, 0.15);
+  color: #25d366;
+  border: 1px solid rgba(37, 211, 102, 0.3);
+}
+
+.surgas-badge-status.status-error {
+  background: rgba(248, 113, 113, 0.15);
+  color: #f87171;
+  border: 1px solid rgba(248, 113, 113, 0.3);
+}
+
+.surgas-filter-tabs {
+  display: flex;
+  gap: 4px;
+  margin-top: 8px;
+  margin-bottom: 4px;
+}
+
+.surgas-filter-tab {
+  background: #182229;
+  border: 1px solid #2a3942;
+  color: #8696a0;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.surgas-filter-tab:hover {
+  background: #202c33;
+  color: #e9edef;
+}
+
+.surgas-filter-tab.active {
+  background: #00a884;
+  border-color: #00a884;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   VISTA PREVIA DE MENSAJE (SIMULADOR CLIENTE)
+   ========================================================================== */
+.surgas-preview-card {
+  margin-top: 10px;
+  background: #111b21;
+  border: 1px solid #2a3942;
+  border-radius: 8px;
+  padding: 10px 12px;
+}
+
+.surgas-preview-bubble {
+  font-size: 12px;
+  line-height: 1.45;
+  color: #e9edef;
+  white-space: pre-wrap;
+  word-break: break-word;
+  background: #005c4b;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border-top-left-radius: 2px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+
+.surgas-bg-hint {
+  font-size: 11px;
+  color: #8696a0;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 6px;
+}
+
+/* ==========================================================================
+   SELECTOR DE EMOJIS FLOTANTE
+   ========================================================================== */
+.surgas-emoji-picker {
+  position: fixed;
+  width: 290px;
+  background: #202c33;
+  border: 1px solid #374248;
+  border-radius: 10px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.7);
+  z-index: 100060;
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  animation: surgasFadeIn 0.15s ease-out;
+}
+
+@keyframes surgasFadeIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.surgas-emoji-picker.active {
+  display: flex;
+}
+
+.surgas-emoji-header {
+  padding: 8px 12px;
+  background: #111b21;
+  border-bottom: 1px solid #2a3942;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  font-weight: 700;
+  color: #8696a0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.surgas-emoji-tabs {
+  display: flex;
+  gap: 4px;
+  padding: 6px 10px;
+  background: #182229;
+  border-bottom: 1px solid #2a3942;
+}
+
+.surgas-emoji-tab {
+  background: transparent;
+  border: none;
+  color: #8696a0;
+  font-size: 14px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.surgas-emoji-tab:hover, .surgas-emoji-tab.active {
+  background: #2a3942;
+  color: #e9edef;
+}
+
+.surgas-emoji-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+  padding: 10px;
+  max-height: 190px;
+  overflow-y: auto;
+}
+
+.surgas-emoji-grid::-webkit-scrollbar {
+  width: 4px;
+}
+
+.surgas-emoji-grid::-webkit-scrollbar-thumb {
+  background: #374248;
+  border-radius: 2px;
+}
+
+.surgas-emoji-item {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 19px;
+  background: transparent;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: transform 0.1s, background 0.1s;
+  user-select: none;
+}
+
+.surgas-emoji-item:hover {
+  background: #2a3942;
+  transform: scale(1.22);
+}
+
